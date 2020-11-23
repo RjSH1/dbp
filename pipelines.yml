@@ -10,25 +10,23 @@ resources:
   - name: dbp_image
     type: Image
     configuration:
-      registry: zen_art                                # <-- replace with your artifactory integration
+      registry: zen-art                                # <-- replace with your artifactory integration
       sourceRepository: docker_local               # <-- required if registry is Artifactory
-      # imageName: kaloula.jfrog-pipelines.com/docker-local/dbp  # < -- replace with your image path and name
-      imageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/dbp'
-      # imageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
+      imageName: pipelines.westus.cloudapp.azure.com:8082/docker_local/dbp  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
       
   - name: dbp_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: zen_art
+      sourceArtifactory: zen-art
       buildName: dbp_build
       buildNumber: 1    
 
   - name: dbp_promoted_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: zen_art
+      sourceArtifactory: zen-art
       buildName: dbp_build
       buildNumber: 1
       
@@ -42,13 +40,12 @@ pipelines:
           affinityGroup: dbp_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/dbp'  # replace with your image path and name
-          # dockerImageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
+          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker_local/dbp  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
           integrations:
-            - name: zen_art                            # <-- replace with your artifactory integration
+            - name: zen-art                            # <-- replace with your artifactory integration
 
       - name: docker_push
         type: DockerPush
@@ -56,7 +53,7 @@ pipelines:
           affinityGroup: dbp_group
           targetRepository: docker-local
           integrations:
-            - name: zen_art                            # <-- replace with your artifactory integration
+            - name: zen-art                            # <-- replace with your artifactory integration
           inputSteps:
             - name: docker_build
           outputResources:
@@ -75,7 +72,7 @@ pipelines:
         configuration:
           targetRepository: demo-pipelines
           integrations:
-            - name: zen_art
+            - name: zen-art
           inputResources:
             - name: dbp_build_info
           outputResources:
