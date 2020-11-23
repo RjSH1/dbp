@@ -43,7 +43,7 @@ pipelines:
           dockerFileLocation: .
           dockerFileName: Dockerfile
           # dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase  # replace with your image path and name
-          dockerimageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
+          dockerImageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
