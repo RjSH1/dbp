@@ -42,8 +42,8 @@ pipelines:
           affinityGroup: dbp_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          # dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase  # replace with your image path and name
-          dockerImageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
+          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase  # replace with your image path and name
+          # dockerImageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
