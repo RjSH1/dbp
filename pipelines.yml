@@ -12,7 +12,7 @@ resources:
     configuration:	
       registry: zen_art	
       sourceRepository: docker_local	
-      imageName: 'pipelines.westus.cloudapp.azure.com:8082/docker_local/dbp'	
+      imageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase	
       imageTag: latest	
       autoPull: true 
       
