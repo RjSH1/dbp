@@ -23,7 +23,7 @@ resources:
 
 pipelines:
  name: pipeline_dbp
-steps:
+ steps:
   - name: docker_build123
     type: DockerBuild
     configuration:
@@ -36,6 +36,7 @@ steps:
         - name: dbp_repo123
       integrations:
         - name: zen_art
+        
   - name: docker_push123
     type: DockerPush
     configuration:
@@ -47,6 +48,7 @@ steps:
         - name: docker_build123
       outputResources:
         - name: dbp_image123
+        
   - name: publish_dbp_build123
     type: PublishBuildInfo
     configuration:
