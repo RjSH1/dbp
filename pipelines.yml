@@ -13,8 +13,8 @@ resources:
       registry: zen_art                                # <-- replace with your artifactory integration
       sourceRepository: docker_local               # <-- required if registry is Artifactory
       # imageName: kaloula.jfrog-pipelines.com/docker-local/dbp  # < -- replace with your image path and name
-      # imageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase
-      imageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
+      imageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase
+      # imageName: pipe-master.jfrog-pipelines.com/docker-local/mydockerbase
       imageTag: latest
       autoPull: true
       
