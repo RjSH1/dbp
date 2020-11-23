@@ -41,7 +41,7 @@ pipelines:
           dockerFileLocation: .
           dockerFileName: Dockerfile
           dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase  # replace with your image path and name
-          dockerImageTag: ${run_number}
+          dockerImageTag: '${run_number}'
           inputResources:
             - name: dbp_repo
           integrations:
