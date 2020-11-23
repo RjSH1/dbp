@@ -1,18 +1,18 @@
 resources:
-  - name: dbp_repo1
+  - name: dbp_repo123
     type: GitRepo
     configuration:
       gitProvider: zen1
       path: aaragorn2/dbp
       branches:
         include: master
-  - name: dbp_build_info1
+  - name: dbp_build_info123
     type: BuildInfo
     configuration:
       sourceArtifactory: zen_art
-      buildName: dbp_build1
+      buildName: dbp_build123
       buildNumber: 1
-  - name: dbp_image1
+  - name: dbp_image123
     type: Image
     configuration:
       registry: zen_art
@@ -24,7 +24,7 @@ resources:
 pipelines:
  name: pipeline_dbp
 steps:
-  - name: docker_build1
+  - name: docker_build123
     type: DockerBuild
     configuration:
       affinityGroup: dbp_group
@@ -33,10 +33,10 @@ steps:
       dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker_local/dbp'
       dockerImageTag: '${run_number}'
       inputResources:
-        - name: dbp_repo1
+        - name: dbp_repo123
       integrations:
         - name: zen_art
-  - name: docker_push1
+  - name: docker_push123
     type: DockerPush
     configuration:
       affinityGroup: dbp_group
@@ -44,13 +44,13 @@ steps:
       integrations:
         - name: zen_art
       inputSteps:
-        - name: docker_build1
+        - name: docker_build123
       outputResources:
-        - name: dbp_image1
-  - name: publish_dbp_build1
+        - name: dbp_image123
+  - name: publish_dbp_build123
     type: PublishBuildInfo
     configuration:
       inputSteps:
-        - name: docker_push1
+        - name: docker_push123
       outputResources:
-        - name: dbp_build_info1
+        - name: dbp_build_info123
