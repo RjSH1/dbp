@@ -51,7 +51,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: dbp_group
-          targetRepository: docker-local
+          targetRepository: docker_local
           integrations:
             - name: zen_art                            # <-- replace with your artifactory integration
           inputSteps:
@@ -70,7 +70,7 @@ pipelines:
       - name: promote_dbp_build
         type: PromoteBuild
         configuration:
-          targetRepository: demo-pipelines
+          targetRepository: demo_pipelines
           integrations:
             - name: zen_art
           inputResources:
